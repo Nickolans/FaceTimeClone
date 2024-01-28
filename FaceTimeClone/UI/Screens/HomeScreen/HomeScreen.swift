@@ -6,14 +6,42 @@
 //
 
 import SwiftUI
+import Combine
 
 struct HomeScreen: View {
     
     @State private var viewModel = HomeScreenViewModel()
+    @State private var text = ""
+    @State private var message = ""
+    private let peer = PeerConnectivity(displayName: UUID().uuidString)
+    @State private var subscriptions = Set<AnyCancellable>()
     
     var body: some View {
         NavigationView {
             VStack {
+                
+                Text("Incoming Message: \(message)")
+                
+                TextField("", text: $text)
+                
+                Button {
+                    peer.beginSendData(text)
+                } label: {
+                    Text("Send Message")
+                }
+                
+                Button {
+                    peer.beginDiscovery()
+                } label: {
+                    Text("DISCOVER")
+                }
+                
+                Button {
+                    peer.beginAdverting()
+                } label: {
+                    Text("ADVERTISE")
+                }
+                
                 HStack(spacing: 10) {
                     CustomButton(imageSystemName: "link", 
                                  text: "Create Link",
@@ -40,6 +68,14 @@ struct HomeScreen: View {
                     Text("Edit")
                         .foregroundStyle(Color.facetimeGreen)
                 }
+            }
+            .onAppear {
+                peer.listenForMessages().sink { message in
+                    DispatchQueue.main.async {
+                        self.message = message
+                    }
+                }
+                .store(in: &subscriptions)
             }
         }
     }

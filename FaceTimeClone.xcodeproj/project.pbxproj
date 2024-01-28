@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA3B92672B635406004E81DF /* FaceTimeClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA3B92652B635406004E81DF /* FaceTimeClone.xcdatamodeld */; };
+		CA3B926A2B6356A7004E81DF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3B92692B6356A7004E81DF /* Persistence.swift */; };
 		CA42B3862AEC518F003B3FC9 /* FaceTimeCloneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA42B3852AEC518F003B3FC9 /* FaceTimeCloneApp.swift */; };
 		CA42B3882AEC518F003B3FC9 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA42B3872AEC518F003B3FC9 /* HomeScreen.swift */; };
 		CA42B38A2AEC5191003B3FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA42B3892AEC5191003B3FC9 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		CA42B3D22AEE38CE003B3FC9 /* FaceTimeActionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA42B3D12AEE38CE003B3FC9 /* FaceTimeActionTitle.swift */; };
 		CA42B3D52AEEBCC0003B3FC9 /* FaceTimeTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA42B3D42AEEBCC0003B3FC9 /* FaceTimeTypeView.swift */; };
 		CA42B3D72AEEBE86003B3FC9 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA42B3D62AEEBE86003B3FC9 /* View+Ext.swift */; };
+		CA4D672D2B661ABF008D7954 /* PeerConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4D672C2B661ABF008D7954 /* PeerConnectivity.swift */; };
+		CADDA18C2B4157BC00D116FF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADDA18B2B4157BC00D116FF /* Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA3B92662B635406004E81DF /* FaceTimeClone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FaceTimeClone.xcdatamodel; sourceTree = "<group>"; };
+		CA3B92692B6356A7004E81DF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		CA42B3822AEC518F003B3FC9 /* FaceTimeClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceTimeClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA42B3852AEC518F003B3FC9 /* FaceTimeCloneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTimeCloneApp.swift; sourceTree = "<group>"; };
 		CA42B3872AEC518F003B3FC9 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -73,6 +79,9 @@
 		CA42B3D12AEE38CE003B3FC9 /* FaceTimeActionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTimeActionTitle.swift; sourceTree = "<group>"; };
 		CA42B3D42AEEBCC0003B3FC9 /* FaceTimeTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceTimeTypeView.swift; sourceTree = "<group>"; };
 		CA42B3D62AEEBE86003B3FC9 /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		CA4D672C2B661ABF008D7954 /* PeerConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerConnectivity.swift; sourceTree = "<group>"; };
+		CA4D672E2B66286E008D7954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		CADDA18B2B4157BC00D116FF /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA3B92682B63540C004E81DF /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				CA3B92652B635406004E81DF /* FaceTimeClone.xcdatamodeld */,
+				CA3B92692B6356A7004E81DF /* Persistence.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		CA42B3792AEC518F003B3FC9 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +141,9 @@
 		CA42B3842AEC518F003B3FC9 /* FaceTimeClone */ = {
 			isa = PBXGroup;
 			children = (
+				CA4D672E2B66286E008D7954 /* Info.plist */,
+				CA3B92682B63540C004E81DF /* Persistence */,
+				CADDA1892B4157AE00D116FF /* Features */,
 				CA42B3D32AEE3C85003B3FC9 /* Files */,
 				CA42B3B02AEDE78D003B3FC9 /* Extensions */,
 				CA42B3C22AEDF5E7003B3FC9 /* Services */,
@@ -198,6 +219,7 @@
 		CA42B3C22AEDF5E7003B3FC9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CA4D672C2B661ABF008D7954 /* PeerConnectivity.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -249,6 +271,22 @@
 				CA42B38C2AEC5191003B3FC9 /* Preview Content */,
 			);
 			name = Files;
+			sourceTree = "<group>";
+		};
+		CADDA1892B4157AE00D116FF /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				CADDA18A2B4157B300D116FF /* Camera */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		CADDA18A2B4157B300D116FF /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				CADDA18B2B4157BC00D116FF /* Camera.swift */,
+			);
+			path = Camera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,16 +421,20 @@
 			files = (
 				CA42B3B52AEDE8D7003B3FC9 /* CustomButton.swift in Sources */,
 				CA42B3882AEC518F003B3FC9 /* HomeScreen.swift in Sources */,
+				CADDA18C2B4157BC00D116FF /* Camera.swift in Sources */,
 				CA42B3D72AEEBE86003B3FC9 /* View+Ext.swift in Sources */,
+				CA4D672D2B661ABF008D7954 /* PeerConnectivity.swift in Sources */,
 				CA42B3B82AEDE9C8003B3FC9 /* Call.swift in Sources */,
 				CA42B3D52AEEBCC0003B3FC9 /* FaceTimeTypeView.swift in Sources */,
 				CA42B3BB2AEDE9EE003B3FC9 /* FaceTimeType.swift in Sources */,
 				CA42B3862AEC518F003B3FC9 /* FaceTimeCloneApp.swift in Sources */,
+				CA3B926A2B6356A7004E81DF /* Persistence.swift in Sources */,
 				CA42B3CE2AEDFA20003B3FC9 /* FaceTimeActionButton.swift in Sources */,
 				CA42B3D22AEE38CE003B3FC9 /* FaceTimeActionTitle.swift in Sources */,
 				CA42B3C02AEDF386003B3FC9 /* CallCell.swift in Sources */,
 				CA42B3C62AEDF6CB003B3FC9 /* FaceTimeScreen.swift in Sources */,
 				CA42B3CC2AEDF9AC003B3FC9 /* FaceTimeScreenViewModel.swift in Sources */,
+				CA3B92672B635406004E81DF /* FaceTimeClone.xcdatamodeld in Sources */,
 				CA42B3B22AEDE7A0003B3FC9 /* Color+Ext.swift in Sources */,
 				CA42B3D02AEE326E003B3FC9 /* FaceTimeAction.swift in Sources */,
 				CA42B3BE2AEDEA2C003B3FC9 /* Call+MockData.swift in Sources */,
@@ -560,6 +602,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FaceTimeClone/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = FaceTime;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Used for app";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -598,6 +643,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FaceTimeClone/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = FaceTime;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Used for app";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -753,6 +801,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CA3B92652B635406004E81DF /* FaceTimeClone.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CA3B92662B635406004E81DF /* FaceTimeClone.xcdatamodel */,
+			);
+			currentVersion = CA3B92662B635406004E81DF /* FaceTimeClone.xcdatamodel */;
+			path = FaceTimeClone.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CA42B37A2AEC518F003B3FC9 /* Project object */;
 }
