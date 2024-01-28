@@ -58,23 +58,26 @@ struct FaceTimeScreen: View {
                 }
                 .padding()
                 
-                Rectangle()
-                    .frame(width: 75, height: 150)
-                    .clipShape(.rect(cornerRadius: 15))
-                    .position(location)
-                    .gesture(DragGesture().onChanged({ value in
-                        self.location = value.location
-                    })
-                    .onEnded({ value in
-                        self.determineLocation(location: value.location, size: geometry.size, frameSize: CGSize(width: 75, height: 150))
-                    }))
-                    .gesture(MagnifyGesture().onChanged({ value in
-                        print("MAGNIFYING GESTURE: ", value)
-                    }))
+                if (self.viewModel.videoImage != nil) {
+                    self.viewModel.videoImage!
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 75, height: 150)
+                        .clipShape(.rect(cornerRadius: 15))
+                        .position(location)
+                        .gesture(DragGesture().onChanged({ value in
+                            self.location = value.location
+                        })
+                        .onEnded({ value in
+                            self.determineLocation(location: value.location, size: geometry.size, frameSize: CGSize(width: 75, height: 150))
+                        }))
+                        .gesture(MagnifyGesture().onChanged({ value in
+                            print("MAGNIFYING GESTURE: ", value)
+                        }))
+                }
+                
             }
-            
         })
-        
     }
     
     private func determineLocation(location: CGPoint, size: CGSize, frameSize: CGSize) {
