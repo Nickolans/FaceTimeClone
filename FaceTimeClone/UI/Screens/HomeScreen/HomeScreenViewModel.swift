@@ -16,4 +16,16 @@ import SwiftUI
     func newFaceTime() {
         // 
     }
+    
+    private func fetchCallHistory() {
+        let request = FaceTimeCall.fetchRequest()
+        request.predicate = NSPredicate(format: "date <= %@", NSDate())
+        let context = PersistenceController.shared.container.viewContext
+        
+        do {
+            let calls = try context.fetch(request)
+        } catch {
+            // Error
+        }
+    }
 }
