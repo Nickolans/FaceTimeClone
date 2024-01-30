@@ -11,11 +11,16 @@ import Combine
 
 final class PeerConnectivity: NSObject {
     
+    typealias InviteSubject = PassthroughSubject<MCPeerID, Never>
+    typealias MessageSubject = CurrentValueSubject<String, Never>
+    
     private let peerId: MCPeerID
     private var session: MCSession?
     private var browser: MCNearbyServiceBrowser?
     private var advertiser: MCNearbyServiceAdvertiser?
-    private var subject: CurrentValueSubject<String, Never>?
+    private var subject: MessageSubject?
+    private var inviteSubject: InviteSubject?
+    private var invites: [MCPeerID: (Bool, MCSession?) -> Void] = [:]
     
     init(displayName: String) {
         self.peerId = .init(displayName: displayName)
@@ -28,10 +33,26 @@ final class PeerConnectivity: NSObject {
         session?.delegate = self
     }
     
+    private func sendInviteToQueue(_ peerId: MCPeerID, _ invitationHandler: @escaping (Bool, MCSession?) -> Void) {
+        invites[peerId] = invitationHandler
+        inviteSubject?.send(peerId)
+    }
+}
+
+
+extension PeerConnectivity {
     func beginDiscovery() {
         self.browser = .init(peer: self.peerId, serviceType: "ftclone-video")
         browser?.delegate = self
         browser?.startBrowsingForPeers()
+    }
+    
+    func stopDiscover() {
+        self.browser?.stopBrowsingForPeers()
+    }
+    
+    func stopAdvertising() {
+        self.advertiser?.stopAdvertisingPeer()
     }
     
     func beginAdverting() {
@@ -50,9 +71,25 @@ final class PeerConnectivity: NSObject {
         }
     }
     
-    func listenForMessages() -> CurrentValueSubject<String, Never> {
-        self.subject = CurrentValueSubject<String, Never>("Started...")
+    func listenForMessages() -> MessageSubject {
+        self.subject = MessageSubject("Started...")
         return self.subject!
+    }
+    
+    func listenForInvite() -> InviteSubject {
+        self.inviteSubject = InviteSubject()
+        return self.inviteSubject!
+    }
+    
+    func sendInvite(_ peerId: MCPeerID) {
+        guard let browser = browser, let session = session else { return }
+        browser.invitePeer(peerId, to: session, withContext: nil, timeout: 30)
+    }
+    
+    func respondToInvite(_ peerId: MCPeerID, accept: Bool) {
+        if let handler = invites[peerId], let session = self.session {
+            handler(accept, session)
+        }
     }
 }
 
@@ -94,7 +131,6 @@ extension PeerConnectivity: MCNearbyServiceBrowserDelegate {
 extension PeerConnectivity: MCNearbyServiceAdvertiserDelegate {
     func advertiser(_ advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: Data?, invitationHandler: @escaping (Bool, MCSession?) -> Void) {
         guard let session = self.session else { return }
-        invitationHandler(true, session)
-        advertiser.stopAdvertisingPeer()
+        sendInviteToQueue(peerID, invitationHandler)
     }
 }

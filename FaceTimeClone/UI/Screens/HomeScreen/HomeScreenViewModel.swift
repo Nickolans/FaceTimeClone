@@ -9,12 +9,15 @@ import Foundation
 import SwiftUI
 
 @Observable class HomeScreenViewModel {
+    
+    var showNewFaceTimeScreen = false
+    
     func createLink() {
         //
     }
     
     func newFaceTime() {
-        // 
+        showNewFaceTimeScreen.toggle()
     }
     
     private func fetchCallHistory() {
@@ -23,7 +26,7 @@ import SwiftUI
         let context = PersistenceController.shared.container.viewContext
         
         do {
-            let calls = try context.fetch(request)
+            // let calls = try context.fetch(request)
         } catch {
             // Error
         }

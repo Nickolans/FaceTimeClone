@@ -32,6 +32,7 @@
 		CA42B3D72AEEBE86003B3FC9 /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA42B3D62AEEBE86003B3FC9 /* View+Ext.swift */; };
 		CA4D672D2B661ABF008D7954 /* PeerConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4D672C2B661ABF008D7954 /* PeerConnectivity.swift */; };
 		CADDA18C2B4157BC00D116FF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADDA18B2B4157BC00D116FF /* Camera.swift */; };
+		CAE11D682B68A81B00C85328 /* NewFaceTimeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE11D672B68A81B00C85328 /* NewFaceTimeScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		CA4D672C2B661ABF008D7954 /* PeerConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeerConnectivity.swift; sourceTree = "<group>"; };
 		CA4D672E2B66286E008D7954 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CADDA18B2B4157BC00D116FF /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		CAE11D672B68A81B00C85328 /* NewFaceTimeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFaceTimeScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 		CA42B3C32AEDF6B3003B3FC9 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				CAE11D662B68A80600C85328 /* NewFaceTimeScreen */,
 				CA42B3CA2AEDF99A003B3FC9 /* FaceTimeScreen */,
 				CA42B3C72AEDF86F003B3FC9 /* HomeScreen */,
 			);
@@ -287,6 +290,14 @@
 				CADDA18B2B4157BC00D116FF /* Camera.swift */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		CAE11D662B68A80600C85328 /* NewFaceTimeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CAE11D672B68A81B00C85328 /* NewFaceTimeScreen.swift */,
+			);
+			path = NewFaceTimeScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,6 +443,7 @@
 				CA42B3CE2AEDFA20003B3FC9 /* FaceTimeActionButton.swift in Sources */,
 				CA42B3D22AEE38CE003B3FC9 /* FaceTimeActionTitle.swift in Sources */,
 				CA42B3C02AEDF386003B3FC9 /* CallCell.swift in Sources */,
+				CAE11D682B68A81B00C85328 /* NewFaceTimeScreen.swift in Sources */,
 				CA42B3C62AEDF6CB003B3FC9 /* FaceTimeScreen.swift in Sources */,
 				CA42B3CC2AEDF9AC003B3FC9 /* FaceTimeScreenViewModel.swift in Sources */,
 				CA3B92672B635406004E81DF /* FaceTimeClone.xcdatamodeld in Sources */,
@@ -615,6 +627,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -656,6 +669,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";

@@ -13,34 +13,13 @@ struct HomeScreen: View {
     @State private var viewModel = HomeScreenViewModel()
     @State private var text = ""
     @State private var message = ""
-    private let peer = PeerConnectivity(displayName: UUID().uuidString)
     @State private var subscriptions = Set<AnyCancellable>()
+    
+    private let peer = PeerConnectivity(displayName: UUID().uuidString)
     
     var body: some View {
         NavigationView {
             VStack {
-                
-                Text("Incoming Message: \(message)")
-                
-                TextField("", text: $text)
-                
-                Button {
-                    peer.beginSendData(text)
-                } label: {
-                    Text("Send Message")
-                }
-                
-                Button {
-                    peer.beginDiscovery()
-                } label: {
-                    Text("DISCOVER")
-                }
-                
-                Button {
-                    peer.beginAdverting()
-                } label: {
-                    Text("ADVERTISE")
-                }
                 
                 HStack(spacing: 10) {
                     CustomButton(imageSystemName: "link", 
@@ -76,6 +55,9 @@ struct HomeScreen: View {
                     }
                 }
                 .store(in: &subscriptions)
+            }
+            .sheet(isPresented: $viewModel.showNewFaceTimeScreen) {
+                NewFaceTimeScreen()
             }
         }
     }
